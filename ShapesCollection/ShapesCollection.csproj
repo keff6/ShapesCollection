@@ -41,12 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Circle.cs" />
+    <Compile Include="Classes\Donut.cs" />
+    <Compile Include="Classes\Ellipse.cs" />
+    <Compile Include="Classes\Point.cs" />
+    <Compile Include="Classes\Rectangle.cs" />
+    <Compile Include="Classes\Shape.cs" />
+    <Compile Include="Classes\Square.cs" />
+    <Compile Include="Classes\Triangle.cs" />
+    <Compile Include="Logic\AppManager.cs" />
+    <Compile Include="Logic\FileManager.cs" />
+    <Compile Include="Logic\ShapeFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
