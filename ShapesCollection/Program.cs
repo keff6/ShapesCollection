@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShapesCollection.Logic;
+using System;
 
 namespace ShapesCollection
 {
@@ -8,6 +9,8 @@ namespace ShapesCollection
         {
             DrawHeader();
             var command = string.Empty;
+            AppManager man = new AppManager();
+            man.AddShape();
             
             Console.Write("> ");
             command = Console.ReadLine();
