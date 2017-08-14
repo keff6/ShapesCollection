@@ -49,6 +49,7 @@
     <Compile Include="Classes\Shape.cs" />
     <Compile Include="Classes\Square.cs" />
     <Compile Include="Classes\Triangle.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Logic\AppManager.cs" />
     <Compile Include="Logic\FileManager.cs" />
     <Compile Include="Logic\ShapeFactory.cs" />

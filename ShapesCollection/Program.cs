@@ -8,55 +8,66 @@ namespace ShapesCollection
         static void Main(string[] args)
         {
             DrawHeader();
-            var command = string.Empty;
-            AppManager man = new AppManager();
-            man.AddShape();
+            var input = string.Empty;
+            AppManager appManager = new AppManager();
+            
             
             Console.Write("> ");
-            command = Console.ReadLine();
+            input = Console.ReadLine();
 
-            while (!string.Equals(command, "exit")) 
-            {             
+            while (!string.Equals(input, "exit"))
+            {
 
-                var str = command.Split(' ');                
+                var strInput = input.Split(' ');
 
-                if(str.Length == 1)
+                switch (appManager.VerifyInput(strInput))
                 {
-                    switch (command)
-                    {
-                        case "help":
-                            DrawInstructions();
-                            break;
-
-                        case "file":
-                            Console.WriteLine("You choose to load from a file");
-                            break;
-
-                        case "stats":
-                            Console.WriteLine("You choose to see the stats");
-                            break;
-
-                        case "clear":
-                            Console.Clear();
-                            Console.WriteLine("You choose to clear console");
-                            break;
-
-                        default:
-                            Console.WriteLine("Command not recognized. Try again!");
-                            break;
-                    }
+                    case Constants.InputType.Command:
+                        CommandsManager(strInput);
+                        break;
+                    case Constants.InputType.Number:
+                        appManager.SearchShapeByCoordinate(strInput);
+                        break;
+                    case Constants.InputType.Shape:
+                        appManager.AddShape(strInput);
+                        break;
+                    default:
+                        Console.WriteLine("Input not recognized, please try again!");
+                        break;
                 }
-                else
-                {
-                    Console.WriteLine("Build a shape");
-                }
-
 
                 Console.Write("> ");
-                command = Console.ReadLine();
-                
-            }             
+                input = Console.ReadLine();
 
+            }                  
+
+        }
+
+        private static void CommandsManager(string[] command)
+        {
+            switch (command[0])
+            {
+                case "help":
+                    DrawInstructions();
+                    break;
+
+                case "file":
+                    Console.WriteLine("You choose to load from a file");
+                    break;
+
+                case "stats":
+                    Console.WriteLine("You choose to see the stats");
+                    break;
+
+                case "clear":
+                    Console.Clear();
+                    Console.WriteLine("You choose to clear console");
+                    break;
+
+                default:
+                    Console.WriteLine("Command not recognized. Try again!");
+                    break;
+            }
         }
 
 
